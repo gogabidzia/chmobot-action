@@ -65,8 +65,12 @@ function scanDirectory(dir, relativePath = "") {
     ".mjs",
     ".cjs",
   ];
+  console.log(fs.readdirSync('/'))
+  console.log(fs.readdirSync('/github'))
   // Read the contents of the directory
   const items = fs.readdirSync(dir);
+
+  console.log('readdir', dir)
 
   items.forEach((item) => {
     if (item.startsWith(".git")) return;
