@@ -14,6 +14,8 @@ ls -al
 node /run.js
 
 git status
+git add .
+git commit -m "Bot x"
 git push origin chmobot/iss-3
 
 curl -X POST \
