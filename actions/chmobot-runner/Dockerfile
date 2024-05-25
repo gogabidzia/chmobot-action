@@ -4,6 +4,7 @@ FROM node:18-alpine
 WORKDIR /github/workspace
 
 RUN apk add --no-cache git
+RUN apk add --no-cache curl
 
 COPY entrypoint.sh /entrypoint.sh
 
