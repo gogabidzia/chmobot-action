@@ -13,11 +13,12 @@ echo "New update 2" >> README.md
 
 git add .
 git commit -m "update from chmobot"
-git push origin chmobot/iss-2
+node /run.js
+# git push origin chmobot/iss-2
 
-curl -X POST \
-  -H "Authorization: token $GITHUB_TOKEN" \
-  -d "{\"title\":\"Test\",\"body\":\"Test\",\"head\":\"chmobot/iss-2\",\"base\":\"main\"}" \
-  "https://api.github.com/repos/$GITHUB_REPOSITORY/pulls"
+# curl -X POST \
+#   -H "Authorization: token $GITHUB_TOKEN" \
+#   -d "{\"title\":\"Test\",\"body\":\"Test\",\"head\":\"chmobot/iss-2\",\"base\":\"main\"}" \
+#   "https://api.github.com/repos/$GITHUB_REPOSITORY/pulls"
 
 echo "Done"
