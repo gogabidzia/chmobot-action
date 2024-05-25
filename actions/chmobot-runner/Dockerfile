@@ -6,6 +6,6 @@ WORKDIR /github/workspace
 RUN apk add --no-cache git
 RUN apk add --no-cache curl
 
-COPY . /github/workspace
+COPY . .
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 ENTRYPOINT ["/entrypoint.sh"]
