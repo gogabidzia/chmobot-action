@@ -9,10 +9,8 @@ git config user.name "chmobot[bot]"
 
 git checkout -b chmobot/iss-2
 
-echo "New update 2" >> README.md
+ls -al
 
-git add .
-git commit -m "update from chmobot"
 node /run.js
 # git push origin chmobot/iss-2
 
