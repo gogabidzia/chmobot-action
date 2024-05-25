@@ -65,8 +65,6 @@ function scanDirectory(dir, relativePath = "") {
     ".mjs",
     ".cjs",
   ];
-  console.log(fs.readdirSync('/'))
-  console.log(fs.readdirSync('/github'))
   // Read the contents of the directory
   const items = fs.readdirSync(dir);
 
@@ -95,6 +93,9 @@ function scanDirectory(dir, relativePath = "") {
 }
 
 (async () => {
+  
+  console.log(fs.readdirSync('/'))
+  console.log(fs.readdirSync('/github'))
   const dir = scanDirectory("/github/workspace");
   console.log(dir);
   const data = await test("/github/workspace", JSON.stringify(dir));
