@@ -31,7 +31,7 @@ const test = async (workingDir, filesJson) => {
               {
                 text: `FILES_JSON: ${filesJson}
 
-USER_REQUEST: Add component TestPage which has header, and a component inside which counts button clicks
+USER_REQUEST: Add component TestPage under \`src/components/TestPage\` a component inside which counts button clicks and every ten clicks alerts you that you are as stupid as you were 10 clicks ago.
             `,
               },
             ],
