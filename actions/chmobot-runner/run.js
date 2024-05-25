@@ -3,7 +3,7 @@ const fs = require("fs");
 const { exec } = require("child_process");
 
 const SYSTEM_MESSAGE = `You are an AI designed to assist in software development tasks. Your current task is to analyze a set of given file paths, their contents, and a user prompt to generate updates that need to be made to these files.
-
+for all user requests, make sure to follow existing files and folders structure/naming and general conventions you see in codebase.
 Your task is to output a list of Changes needed to complete the task. Output format should be following:
 On first line if new file is needed write "CREATE_FILE: " and file path; If file update is needed then write "UPDATE_FILE" and file path.
 After that you output code in markdown format.
