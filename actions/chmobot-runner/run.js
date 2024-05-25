@@ -64,6 +64,7 @@ function scanDirectory(dir, relativePath = "") {
     ".json",
     ".mjs",
     ".cjs",
+    "-lock.json"
   ];
   // Read the contents of the directory
   const items = fs.readdirSync(dir);
