@@ -5,9 +5,9 @@ const { exec } = require("child_process");
 const SYSTEM_MESSAGE = `You are an AI designed to assist in software development tasks. Your current task is to analyze a set of given file paths, their contents, and a user prompt to generate updates that need to be made to these files.
 for all user requests, make sure to follow existing files and folders structure/naming and general conventions you see in codebase.
 Your task is to output a list of Changes needed to complete the task. Output format should be following:
-On first line if new file is needed write "CREATE_FILE: " and file path; If file update is needed then write "UPDATE_FILE" and file path.
-After that you output code in markdown format.
-Add divider between files "----------"
+On first line write file path which needs to be updated or created.
+After that you output code in markdown format. Keep in mind you should output whole content of file after changes.
+Add divider between each file "----------"
 `;
 
 const test = async (workingDir, filesJson) => {
@@ -49,21 +49,21 @@ USER_REQUEST: Add component TestPage which has header, and a component inside wh
   const data = await res.json();
   let text = data.candidates[0].content.parts[0].text;
 
-  console.log(text)
+  const divider = "----------";
+
+  const changes = text.split(divider).map((item) => {
+    const lines = item.split("\n");
+    const line = lines[0];
+    content = lines.slice(2, -1);
+    return { filePath: line, content };
+  });
+  console.log(changes);
 };
 
 function scanDirectory(dir, relativePath = "") {
   const result = {};
   const excluded_dirs = [".git", "node_modules"];
-  const whitelist = [
-    ".ts",
-    "js",
-    "tsx",
-    "jsx",
-    ".css",
-    ".mjs",
-    ".cjs",
-  ];
+  const whitelist = [".ts", "js", "tsx", "jsx", ".css", ".mjs", ".cjs"];
   // Read the contents of the directory
   const items = fs.readdirSync(dir);
 
@@ -89,17 +89,7 @@ function scanDirectory(dir, relativePath = "") {
 }
 
 (async () => {
-  
   const dir = scanDirectory("/github/workspace");
-  console.log(`files choosen:`, Object.keys(dir))
+  console.log(`files choosen:`, Object.keys(dir).length, Object.keys(dir));
   const data = await test("/github/workspace", JSON.stringify(dir));
-
-  // for (let i = 0; i < data.length; i++) {
-  //   const change = data[i];
-  //   if (change.type == "command") {
-  //     console.log("change", change);
-  //     const stdout = await runCommand(change.command);
-  //     console.log(stdout);
-  //   }
-  // }
 })();
