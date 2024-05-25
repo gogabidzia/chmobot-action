@@ -10,6 +10,6 @@ echo "New update 1" >> README.md
 
 git add .
 git commit -m "update from chmobot"
-git push origin chmobo/iss-1
+git push origin chmobot/iss-1
 
 echo "Done"
