@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-ls-all
+ls -all
 
 git checkout -b chmobot/issue-1
 
