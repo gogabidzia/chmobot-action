@@ -1,6 +1,6 @@
 #!/bin/sh -l
 
-token = $2;
-ls -al
-git checkout -b chmobot/issue-1
+git config user.email "905059+chmobot[bot]@users.noreply.github.com"
+git config user.name "chmobot[bot]"
+
 echo "Done" >> $GITHUB_OUTPUT
