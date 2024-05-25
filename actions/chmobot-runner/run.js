@@ -61,10 +61,8 @@ function scanDirectory(dir, relativePath = "") {
     "tsx",
     "jsx",
     ".css",
-    ".json",
     ".mjs",
     ".cjs",
-    "-lock.json"
   ];
   // Read the contents of the directory
   const items = fs.readdirSync(dir);
@@ -72,11 +70,11 @@ function scanDirectory(dir, relativePath = "") {
   items.forEach((item) => {
     const fullPath = path.join(dir, item);
     const itemRelativePath = path.join(relativePath, item);
+    if (excluded_dirs.some((dir) => item.includes(dir))) return;
 
     // Check if the current item is a directory or a file
     const stat = fs.statSync(fullPath);
     if (stat.isDirectory()) {
-      if (excluded_dirs.some((dir) => fullPath.includes(dir))) return;
       // Recursively scan the subdirectory
       Object.assign(result, scanDirectory(fullPath, itemRelativePath));
     } else {
