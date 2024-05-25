@@ -62,8 +62,26 @@ USER_REQUEST: Add component TestPage under \`src/components/TestPage\` a compone
       const content = lines.slice(2, -1);
       return { filePath: line, content: content.join("\n") };
     });
-  console.log(changes);
+
+  changes.forEach((change) => {
+    writeFileWithDirs(path.join(workingDir, change.filePath), change.content);
+  });
 };
+
+async function writeFileWithDirs(filePath, data) {
+  try {
+    // Extract the directory from the file path
+    const dir = path.dirname(filePath);
+
+    // Create directories if they don't exist
+    await fs.mkdir(dir, { recursive: true });
+
+    // Write data to the file
+    await fs.writeFile(filePath, data, { encoding: "utf-8" });
+  } catch (error) {
+    console.error(`Error writing file to ${filePath}:`, error);
+  }
+}
 
 function scanDirectory(dir, relativePath = "") {
   const result = {};

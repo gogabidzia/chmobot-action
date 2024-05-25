@@ -12,6 +12,8 @@ git checkout -b chmobot/iss-2
 ls -al
 
 node /run.js
+
+git status
 # git push origin chmobot/iss-2
 
 # curl -X POST \
