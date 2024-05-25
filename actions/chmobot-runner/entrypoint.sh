@@ -8,6 +8,8 @@ git checkout -b chmobot/iss-1
 
 echo "New update 1" >> README.md
 
-gh
+git add .
+git commit -m "update from chmobot"
+git push origin chmobo/iss-1
 
 echo "Done"
