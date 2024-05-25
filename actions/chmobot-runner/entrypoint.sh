@@ -8,4 +8,6 @@ git checkout -b chmobot/iss-1
 
 echo "New update 1" >> README.md
 
+gh
+
 echo "Done"
