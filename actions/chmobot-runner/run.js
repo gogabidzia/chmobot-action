@@ -92,6 +92,7 @@ function scanDirectory(dir, relativePath = "") {
 
 (async () => {
   const dir = scanDirectory("/github/workspace");
+  console.log(dir);
   const data = await test("/github/workspace", JSON.stringify(dir));
 
   // for (let i = 0; i < data.length; i++) {
