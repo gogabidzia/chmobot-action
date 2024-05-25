@@ -74,10 +74,10 @@ async function writeFileWithDirs(filePath, data) {
     const dir = path.dirname(filePath);
 
     // Create directories if they don't exist
-    await fs.mkdir(dir, { recursive: true });
+    fs.mkdirSync(dir, { recursive: true });
 
     // Write data to the file
-    await fs.writeFile(filePath, data, { encoding: "utf-8" });
+    fs.writeFileSync(filePath, data, { encoding: "utf-8" });
   } catch (error) {
     console.error(`Error writing file to ${filePath}:`, error);
   }
