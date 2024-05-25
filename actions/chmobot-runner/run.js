@@ -7,7 +7,7 @@ for all user requests, make sure to follow existing files and folders structure/
 Your task is to output a list of Changes needed to complete the task. Output format should be following:
 On first line write file path which needs to be updated or created.
 After that you output code in markdown format. Keep in mind you should output whole content of file after changes.
-Add divider between each file "----------"
+Before file names, use prefix ---------- without blank space before file name.
 `;
 
 const test = async (workingDir, filesJson) => {
