@@ -51,6 +51,8 @@ USER_REQUEST: Add component TestPage which has header, and a component inside wh
 
   const divider = "----------";
 
+  console.log(text);
+  
   const changes = text.split(divider).map((item) => {
     const lines = item.split("\n");
     const line = lines[0];
