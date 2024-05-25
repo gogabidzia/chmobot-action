@@ -68,10 +68,7 @@ function scanDirectory(dir, relativePath = "") {
   // Read the contents of the directory
   const items = fs.readdirSync(dir);
 
-  console.log('readdir', dir)
-
   items.forEach((item) => {
-    if (item.startsWith(".git")) return;
     const fullPath = path.join(dir, item);
     const itemRelativePath = path.join(relativePath, item);
 
@@ -94,10 +91,8 @@ function scanDirectory(dir, relativePath = "") {
 
 (async () => {
   
-  console.log(fs.readdirSync('/'))
-  console.log(fs.readdirSync('/github'))
   const dir = scanDirectory("/github/workspace");
-  console.log(dir);
+  console.log(`files choosen:`, Object.keys(dir))
   const data = await test("/github/workspace", JSON.stringify(dir));
 
   // for (let i = 0; i < data.length; i++) {
