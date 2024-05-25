@@ -52,12 +52,12 @@ USER_REQUEST: Add component TestPage which has header, and a component inside wh
   const divider = "----------";
 
   console.log(text);
-  
+
   const changes = text.split(divider).map((item) => {
     const lines = item.split("\n");
     const line = lines[0];
-    content = lines.slice(2, -1);
-    return { filePath: line, content };
+    const content = lines.slice(2, -1);
+    return { filePath: line, content: content.join("\n") };
   });
   console.log(changes);
 };
