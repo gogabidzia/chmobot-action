@@ -2,14 +2,14 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
+  issue_id:
+    description: "ID of the issue"
+    required: true
   issue_title:
     description: 'Title of the issue'
     required: true
   issue_body:
     description: "Body of the issue"
-    required: true
-  issue_id:
-    description: "ID of the issue"
     required: true
 outputs:
   time: # id of output
