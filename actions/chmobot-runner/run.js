@@ -10,6 +10,10 @@ After that you output code in markdown format. Keep in mind you should output wh
 Before file names, use prefix ---------- without blank space before file name.
 `;
 
+const [, , issueId, issueTitle, issueBody] = process.argv;
+
+console.log(issueId, issueTitle, issueBody);
+
 const test = async (workingDir, filesJson) => {
   const res = await fetch(
     "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyD26mbORxYTvFVkI4bv7b-YxaGkP5_oRVA",
@@ -31,8 +35,10 @@ const test = async (workingDir, filesJson) => {
               {
                 text: `FILES_JSON: ${filesJson}
 
-USER_REQUEST: Add TestPage component on HomePage
-            `,
+USER_REQUEST: 
+Issue Title: ${issueTitle}
+Issue Description:
+${issueBody}`,
               },
             ],
           },

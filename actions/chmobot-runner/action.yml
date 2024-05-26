@@ -2,10 +2,15 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
-  who-to-greet: # id of input
-    description: 'Who to greet'
+  issue_title:
+    description: 'Title of the issue'
     required: true
-    default: 'World'
+  issue_body:
+    description: "Body of the issue"
+    required: true
+  issue_id:
+    description: "ID of the issue"
+    required: true
 outputs:
   time: # id of output
     description: 'The time we greeted you'
@@ -13,4 +18,7 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.token }}
+    - ${{ inputs.issue_id }}
+    - ${{ inputs.issue_title }}
+    - ${{ inputs.issue_body }}
+    
