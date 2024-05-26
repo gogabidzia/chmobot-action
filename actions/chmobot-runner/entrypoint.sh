@@ -16,7 +16,14 @@ ls -al
 
 node /run.js $ISSUE_ID $ISSUE_TITLE $ISSUE_BODY
 
-git status
+git_status_output=$(git status --porcelain)
+
+# Check if the output is empty
+if [ -z "$git_status_output" ]; then
+    echo "No changes detected, exiting..."
+    exit 0
+fi
+
 git add .
 git commit -m "Bot x"
 git push origin chmobot/iss-$ISSUE_ID
