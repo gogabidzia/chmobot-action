@@ -119,8 +119,10 @@ function scanDirectory(dir, relativePath = "") {
   if (
     !issueTitle.toLowerCase().includes("@chmobot") ||
     !issueBody.toLowerCase().includes("@chmobot")
-  )
+  ) {
+    console.log("Not for chmobot, exiting...");
     return;
+  }
 
   const dir = scanDirectory("/github/workspace");
   console.log(`files choosen:`, Object.keys(dir).length, Object.keys(dir));
