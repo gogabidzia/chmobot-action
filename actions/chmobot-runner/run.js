@@ -57,8 +57,6 @@ ${issueBody}`,
 
   const divider = "----------";
 
-  console.log(text);
-
   const changes = text
     .split(divider)
     .filter((item) => item.trim().length > 0)
@@ -118,6 +116,12 @@ function scanDirectory(dir, relativePath = "") {
 }
 
 (async () => {
+  if (
+    !issueTitle.toLowerCase().includes("@chmobot") ||
+    !issueBody.toLowerCase().includes("@chmobot")
+  )
+    return;
+
   const dir = scanDirectory("/github/workspace");
   console.log(`files choosen:`, Object.keys(dir).length, Object.keys(dir));
   const data = await test("/github/workspace", JSON.stringify(dir));
