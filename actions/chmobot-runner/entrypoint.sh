@@ -1,8 +1,8 @@
 #!/bin/sh -l
 
-$ISSUE_TITLE = $1
-$ISSUE_BODY = $2
-$ISSUE_ID = $3
+ISSUE_TITLE=$1
+ISSUE_BODY=$2
+ISSUE_ID=$3
 
 echo $1 $2 $3 $ISSUE_ID $ISSUE_TITLE $ISSUE_BODY
 
