@@ -117,7 +117,7 @@ function scanDirectory(dir, relativePath = "") {
 
 (async () => {
   if (
-    !issueTitle.toLowerCase().includes("@chmobot") ||
+    !issueTitle.toLowerCase().includes("@chmobot") &&
     !issueBody.toLowerCase().includes("@chmobot")
   ) {
     console.log("Not for chmobot, exiting...");
