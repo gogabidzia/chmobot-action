@@ -23,7 +23,7 @@ git push origin chmobot/iss-$ISSUE_ID
 
 curl -X POST \
   -H "Authorization: token $GITHUB_TOKEN" \
-  -d "{\"title\":\"Test\",\"body\":\"Test\",\"head\":\"chmobot/iss-3\",\"base\":\"main\"}" \
+  -d "{\"title\":\"Test\",\"body\":\"Test\",\"head\":\"chmobot/iss-$ISSUE_ID\",\"base\":\"main\"}" \
   "https://api.github.com/repos/$GITHUB_REPOSITORY/pulls"
 
 echo "Done"
