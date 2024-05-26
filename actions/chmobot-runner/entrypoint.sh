@@ -14,7 +14,7 @@ git checkout -b chmobot/iss-$ISSUE_ID
 
 ls -al
 
-node /run.js $ISSUE_ID $ISSUE_TITLE $ISSUE_BODY
+node /run.js "$ISSUE_ID" "$ISSUE_TITLE" "$ISSUE_BODY"
 
 git_status_output=$(git status --porcelain)
 
