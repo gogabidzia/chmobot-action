@@ -55,6 +55,8 @@ ${issueBody}`,
   const data = await res.json();
   let text = data.candidates[0].content.parts[0].text;
 
+  console.log(text);
+
   const divider = "----------";
 
   const changes = text
@@ -125,6 +127,5 @@ function scanDirectory(dir, relativePath = "") {
   }
 
   const dir = scanDirectory("/github/workspace");
-  console.log(`files choosen:`, Object.keys(dir).length, Object.keys(dir));
   const data = await test("/github/workspace", JSON.stringify(dir));
 })();
